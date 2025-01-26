@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Base */
+
+/* Плавный скролл при переходу по Id*/
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* ВНЕШНИЙ отступ */
+    /*margin: 0;*/
+
+    font-family: "Montserrat", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Сокрытие элемента по необходимости */
+.none {
+    display: none !important;
+}
+
+.container {
+    /*height: 200px;*/
+    /*background-color: aqua;*/
+    max-width: 1200px;
+
+    /* margin: 0 auto; = margin-left:auto и margin-right:auto, а сверху и снизу по 0
+    По сути 1 параметр отвечает за вертикальные отступы
+    2 параметр отвечает за горизонтальные отступы*/
+    margin: 0 auto;
+
+    /* padding: 0 15px; = padding-left:15px и padding-right:15px, а сверху и снизу по 0
+    По сути 1 параметр отвечает за вертикальные отступы
+    2 параметр отвечает за горизонтальные отступы*/
+    padding: 0 15px;
+}
+
+/* Header */
+.header {
+    position: relative;
+
+
+    /*background-color: #252525; linear-gradient(150deg, #2f2f2f 0%, #202020 100%);*/
+    background-color: #000;
+    color: #fff;
+
+    overflow: hidden;
+
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    border-bottom-right-radius: 100px;
+
+    /*!* Когда мы пишем 100% то блок растягивается по ширине РОДИТЕЛЬСКОГО БЛОКА в данном случае body*!*/
+    /*width: 100%;*/
+    /*!* vh это проценты но не от Тега родителя а проценты от высоты окна view порта*/
+    /*(как я понял от высоты которую пользователь видит при первом заходе на страницу *!*/
+    /*height: 100vh;*/
+
+    /*!* говорит то что блок header будет являться flexbox контейнером и элементы внутри него будут выстраиваться по правилам*/
+    /*   flexbox моделей*/
+    /*   Правила следующие:*/
+    /*   1) По умолчанию все элементы располагаются в ряд - поэтому нужен  flex-direction: column; (по умолчанию row) *!*/
+    /*display: flex;*/
+    /*flex-direction: column;*/
+
+    /*!* 2) Для выравнивания по центру горизонтально и вертикально действует правило относительно ОСНОВНОЙ И ПОПЕРЕЧНОЙ ОСИ*/
+    /*      Основная ось = так как выравнивается контент, так как flex-direction: column; то выравнивание вертикальное*/
+    /*      Основная ось = Колонка = ось Y*/
+    /*      Для выравнивания по ОСНОВНОЙ оси используется justify-content*!*/
+    /*justify-content: center;*/
+    /*!* Для выравнивания другой (ПОПЕРЕЧНОЙ) оси align-items*!*/
+    /*align-items: center;*/
+}
+
+/* Обращение к container которые внутри header */
+.header .container {
+    position: relative;
+    z-index: 9;
+}
+
+.header-video {
+
+    /* Позития абсолютная то есть не двигается */
+    position: absolute;
+    /* Положение слева и сверху по 0 то есть от левого верхнего угла шапки */
+    left: 0;
+    top: 0;
+    /* Растянуть на всю длину шапки */
+    width: 100%;
+    height: 100%;
+
+    /* Покрыть всю область шапки */
+    object-fit: cover;
+
+    object-position: center;
+
+    opacity: 0.2;
+    border-bottom-right-radius: 100px;
+}
+
+
+.header-image {
+    border-radius: 80px;
+}
+
+.header-row {
+    display: flex;
+    /*!* говорит то что блок header будет являться flexbox контейнером и элементы внутри него будут выстраиваться по правилам*/
+    /*   flexbox моделей*/
+    /*   Правила следующие:*/
+    /*   1) По умолчанию все элементы располагаются в ряд - поэтому нужен  flex-direction: column; - если надо (по умолчанию row) *!*/
+    flex-direction: row;
+
+    /* 2) Для выравнивания по центру горизонтально и вертикально действует правило относительно ОСНОВНОЙ И ПОПЕРЕЧНОЙ ОСИ
+          Основная ось = так как выравнивается контент, так как flex-direction: column; то выравнивание вертикальное
+          Основная ось = Колонка = ось Y
+          Для выравнивания по ОСНОВНОЙ оси используется justify-content*/
+    justify-content: center;
+    /* Для выравнивания другой (ПОПЕРЕЧНОЙ) оси align-items*/
+    align-items: center;
+
+    column-gap: 60px;
+}
+
+.header-title {
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 60px;
+}
+
+.header-text {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.header-buttons {
+    display: flex;
+    column-gap: 20px;
+}
+
+.button {
+    height: 48px;
+    padding-top: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+
+    background-color: black;
+    border-radius: 8px;
+
+    color: white;
+    line-height: 1;
+
+    /* Свойство нужное для плавной анимации смены цвета по сути для стилей которые ниже */
+    transition: all 0.2s ease-in;
+}
+
+/* :hover получается это отлавливание события НАВЕДЕНИЯ на объект,
+   Цвет кнопки меняется при наведении и при отведении восстанавливается обратно */
+.button:hover {
+    background-color: #1782CF;
+}
+
+.button-outline {
+    height: 48px;
+    padding-top: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+
+    border: 1px solid #3B3B3B;
+    border-radius: 8px;
+
+    color: white;
+    line-height: 1;
+
+    /* Свойство нужное для плавной анимации смены цвета по сути для стилей которые ниже */
+    transition: all 0.2s ease-in;
+}
+
+.button-outline:hover {
+    border-color: #1782CF;
+}
+
+/* Portfolio */
+
+.portfolio {
+    padding: 80px 0;
+}
+
+.portfolio-title {
+    font-size: 52px;
+    /* font-weight - по сути чем больше это значение тем шрифт жирнее, 700 - это Bold (жирный шрифт)*/
+    font-weight: 700;
+    color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 65px;
+}
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    row-gap: 70px;
+    align-items: center;
+}
+
+.project {
+    text-align: center;
+}
+
+.project-image {
+    margin-bottom: 30px;
+    border-radius: 30px;
+
+    transition: opacity 0.2s ease-in;
+}
+
+.project-image:hover {
+    opacity: 0.8;
+}
+
+.project-title {
+    font-size: 22px;
+}
+
+.project-title a {
+    color: black;
+    text-decoration: underline;
+}
+
+/*Contacts*/
+
+.contacts {
+
+    padding: 80px 0;
+
+    background-color: #252525;
+    border-top-left-radius: 100px;
+    color: #fff;
+}
+
+.contacts-title{
+    margin-bottom: 65px;
+    font-size: 52px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.messangers {
+    display: flex;
+    column-gap: 30px;
+    /*flex-direction: row;*/
+    /*margin: 0 50px;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+
+    flex-wrap: wrap;
+    row-gap: 30px;
+}
+
+.messanger {
+    /*Говорит всем 3-м ссылкам занимать всё доступное им место*/
+    flex-grow: 1;
+
+    padding: 46px 20px;
+    border-radius: 20px;
+    border: 1px solid #363636;
+
+    /* По сути эти 3 строчки располагают объекты рядом друг с другом ГОРИЗОНТАЛЬНО, внутри блока
+       А именно картинку и текст*/
+    display: flex;
+    column-gap: 15px;
+    align-items: center;
+
+    color: #fff;
+    font-size: 20px;
+
+    transition: background-color 0.2s ease-in;
+}
+
+.messanger:hover {
+    background-color: #1E1E1E;
+}
+
+/* Footer */
+
+.footer{
+    padding: 30px 0;
+    background-color: #1E1E1E;
+
+    color: #5D5D5D;
+}
+
+.footer a{
+    color: #5886A8;
+}
+
+.footer-inner{
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Селектор работает так, Он находит блок с классом footer-inner, внутри него находит p, если у этого p есть сосед справа (тот что идёт после него)
+   и он тоже является тегом p, то тогда он ВЫБИРАЕТСЯ и к нему применяется этот стиль */
+.footer-inner p + p {
+    margin-top: 15px;
+}
+
+/* Inner Page */
+
+.inner-page {
+    padding: 80px 0 40px;
+}
+
+.inner-page-details {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    align-items: center;
+
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.inner-page-title {
+    font-size: 52px;
+    font-weight: 700;
+}
+
+.inner-page-text {
+    max-width: 570px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+
+    color: #555555;
+    line-height: 1.5;
+}
+
+.inner-page-link {
+    color: black;
+}
+
+.inner-page-link a {
+    color: black;
+    text-decoration: underline;
+}
+
+.inner-page-image {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.inner-page-backlink {
+    max-width: 770px;
+    padding: 30px;
+    margin: 30px auto;
+
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #F1F1F1;
+    text-align: center;
+    color: #000;
+
+    transition: all 0.2s ease-in;
+}
+
+.inner-page-backlink:hover {
+    background-color: #b1b1b1;
+}

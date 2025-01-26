@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Сайт портфолио</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/media.css">
+
+    <link rel="icon" type="image/x-icon" href="./img/favicons/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/apple-touch-icon.png">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-row">
+<!--                Как я понял srcset для адаптации изображения под разные мониторы, как можно увидеть тут x2 по размеру фото и -->
+<!--                параметр x2-->
+                <img src="./img/photo.jpg" srcset="./img/photo@2x.jpg 2x" alt="Photo" class="header-image">
+                <div class="header-desc">
+                    <h1 class="header-title">Артём Терёхин</h1>
+                    <p class="header-text">Фрилансер, веб-разработчик, <br>создание сайтов</p>
+
+                    <div class="header-buttons">
+                        <a href="#portfolio" class="button">Портфолио</a>
+                        <a href="#contacts" class="button-outline">Контакты</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <video class="header-video" autoplay muted loop>
+            <source type="video/mp4" src="./video/coding.mp4">
+        </video>
+    </header>
+
+    <main>
+        <section class="portfolio" id="portfolio">
+            <div class="container">
+                <h2 class="portfolio-title">Портфолио</h2>
+
+                <div class="projects">
+<!--                   article так как это законченный блок, его можно унести куда угодно и он будет работать -->
+                    <article class="project">
+                        <a href="./panto.html">
+                            <img src="./img/portfolio/project-01.jpg" srcset="./img/portfolio/project-01@2x.jpg 2x" alt="Сайт магазина мебели" class="project-image">
+                        </a>
+                        <h3 class="project-title"><a href="./panto.html">Сайт магазина мебели</a></h3>
+                    </article>
+                    <article class="project">
+                        <a href="./gotravel.html">
+                            <img src="./img/portfolio/project-02.jpg" srcset="./img/portfolio/project-02@2x.jpg 2x" alt="Сайт туристического агентства" class="project-image">
+                        </a>
+                        <h3 class="project-title"><a href="./gotravel.html">Сайт туристического агентства</a></h3>
+                    </article>
+                    <article class="project">
+                        <a href="./lofthouse.html">
+                            <img src="./img/portfolio/project-03.jpg" srcset="./img/portfolio/project-03@2x.jpg 2x" alt="Сайт жилого комплекса" class="project-image">
+                        </a>
+                        <h3 class="project-title"><a href="lofthouse.html">Сайт жилого комплекса</a></h3>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="contacts" id="contacts">
+            <div class="container">
+                <h2 class="contacts-title">Контакты</h2>
+
+                <div class="messangers">
+                    <a href="https://t.me/artmic2011" target="_blank" class="messanger">
+                        <img src="./img/icons/telegram.svg" alt="Telegram">
+                        Написать в Telegram
+                    </a>
+                    <a href="https://vk.com/artmic2011" target="_blank" class="messanger">
+                        <img src="./img/icons/vk.svg" alt="Вконтакте">
+                        Связаться Вконтакте
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-inner">
+                    <p>
+                        © Артём Терёхин <br> HTML верстальщик, создание сайтов Псков
+                    </p>
+                    <p>
+                        <a href="https://github.com/ArtmicRus">Другие макеты на моём github</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+</body>
+</html>
